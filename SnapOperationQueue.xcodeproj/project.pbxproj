@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FFA4B6B7FAD622056552A34 /* Pods_SnapOperationQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F294FBF9D56C8063304047 /* Pods_SnapOperationQueue.framework */; };
 		850991F81C4771C3003F93D4 /* SnapOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 850991F71C4771C3003F93D4 /* SnapOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850991FF1C4771C3003F93D4 /* SnapOperationQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */; };
 		850992041C4771C3003F93D4 /* SnapOperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */; };
@@ -23,10 +24,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A3DEACC6DA5A39CDFDD9D23 /* Pods-SnapOperationQueue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapOperationQueue.release.xcconfig"; path = "Pods/Target Support Files/Pods-SnapOperationQueue/Pods-SnapOperationQueue.release.xcconfig"; sourceTree = "<group>"; };
+		51AE239FDBB24CAE0EE16496 /* Pods-SnapOperationQueue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapOperationQueue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SnapOperationQueue/Pods-SnapOperationQueue.debug.xcconfig"; sourceTree = "<group>"; };
+		79F294FBF9D56C8063304047 /* Pods_SnapOperationQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapOperationQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapOperationQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850991F71C4771C3003F93D4 /* SnapOperationQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapOperationQueue.h; sourceTree = "<group>"; };
 		850991F91C4771C3003F93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		850991FE1C4771C3003F93D4 /* SnapOperationQueueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapOperationQueueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		850991FE1C4771C3003F93D4 /* Unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapOperationQueueTests.swift; sourceTree = "<group>"; };
 		850992051C4771C3003F93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFA4B6B7FAD622056552A34 /* Pods_SnapOperationQueue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +55,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		537199D8A46D719A7D3006AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51AE239FDBB24CAE0EE16496 /* Pods-SnapOperationQueue.debug.xcconfig */,
+				0A3DEACC6DA5A39CDFDD9D23 /* Pods-SnapOperationQueue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		850991EA1C4771C2003F93D4 = {
 			isa = PBXGroup;
 			children = (
 				850991F61C4771C3003F93D4 /* SnapOperationQueue */,
 				850992021C4771C3003F93D4 /* SnapOperationQueueTests */,
 				850991F51C4771C3003F93D4 /* Products */,
+				537199D8A46D719A7D3006AF /* Pods */,
+				EC31EB27C6244809AF2D5C28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */,
-				850991FE1C4771C3003F93D4 /* SnapOperationQueueTests.xctest */,
+				850991FE1C4771C3003F93D4 /* Unit tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +102,14 @@
 			path = SnapOperationQueueTests;
 			sourceTree = "<group>";
 		};
+		EC31EB27C6244809AF2D5C28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79F294FBF9D56C8063304047 /* Pods_SnapOperationQueue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -104,10 +128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 850992081C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "SnapOperationQueue" */;
 			buildPhases = (
+				71CCCE2FA40D1ADB5941F109 /* Check Pods Manifest.lock */,
 				850991EF1C4771C3003F93D4 /* Sources */,
 				850991F01C4771C3003F93D4 /* Frameworks */,
 				850991F11C4771C3003F93D4 /* Headers */,
 				850991F21C4771C3003F93D4 /* Resources */,
+				59B733E1C2C7363ED279B3A5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -118,9 +144,9 @@
 			productReference = 850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		850991FD1C4771C3003F93D4 /* SnapOperationQueueTests */ = {
+		850991FD1C4771C3003F93D4 /* Unit tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "SnapOperationQueueTests" */;
+			buildConfigurationList = 8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "Unit tests" */;
 			buildPhases = (
 				850991FA1C4771C3003F93D4 /* Sources */,
 				850991FB1C4771C3003F93D4 /* Frameworks */,
@@ -131,9 +157,9 @@
 			dependencies = (
 				850992011C4771C3003F93D4 /* PBXTargetDependency */,
 			);
-			name = SnapOperationQueueTests;
+			name = "Unit tests";
 			productName = SnapOperationQueueTests;
-			productReference = 850991FE1C4771C3003F93D4 /* SnapOperationQueueTests.xctest */;
+			productReference = 850991FE1C4771C3003F93D4 /* Unit tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -167,7 +193,7 @@
 			projectRoot = "";
 			targets = (
 				850991F31C4771C3003F93D4 /* SnapOperationQueue */,
-				850991FD1C4771C3003F93D4 /* SnapOperationQueueTests */,
+				850991FD1C4771C3003F93D4 /* Unit tests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,6 +214,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59B733E1C2C7363ED279B3A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SnapOperationQueue/Pods-SnapOperationQueue-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71CCCE2FA40D1ADB5941F109 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		850991EF1C4771C3003F93D4 /* Sources */ = {
@@ -307,6 +366,7 @@
 		};
 		850992091C4771C3003F93D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51AE239FDBB24CAE0EE16496 /* Pods-SnapOperationQueue.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -323,6 +383,7 @@
 		};
 		8509920A1C4771C3003F93D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A3DEACC6DA5A39CDFDD9D23 /* Pods-SnapOperationQueue.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -376,14 +437,16 @@
 				8509920A1C4771C3003F93D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "SnapOperationQueueTests" */ = {
+		8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8509920C1C4771C3003F93D4 /* Debug */,
 				8509920D1C4771C3003F93D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
