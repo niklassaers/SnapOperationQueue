@@ -96,12 +96,31 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         
         lockedOperation {
             
-            if let (_, operationIdentifiers) = self._groups.filter({ (groupIdentifier, operationIdentifiers) in
-                return groupIdentifier == groupIdentifier
+            if let (_, operationIdentifiers) = self._groups.filter({ (theGroupIdentifier, operationIdentifiers) in
+                return theGroupIdentifier == groupIdentifier
             }).first {
                 for operationIdentifier in operationIdentifiers {
                     if let operation = self._operations[operationIdentifier] {
+                        // Affect operation
                         self.setPriority(priority, toOperation: operation)
+
+                        // Update priority queue
+                        if var priorityQueue = self._priorityQueues[priority] {
+                            priorityQueue.append(operationIdentifier)
+                            self._priorityQueues[priority] = priorityQueue
+                        } else {
+                            self._priorityQueues[priority] = [operationIdentifier]
+                        }
+                        
+                        // Remove from other priority queues
+                        for (thePriority, theOperationIdentifiers) in self._priorityQueues {
+                            if thePriority != priority {
+                                let newOperationIdentifiers = theOperationIdentifiers.filter({ (theOperationIdentifier) -> Bool in
+                                    return theOperationIdentifier != operationIdentifier
+                                })
+                                self._priorityQueues[thePriority] = newOperationIdentifiers
+                            }
+                        }
                     }
                 }
             }
@@ -112,13 +131,18 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         
         lockedOperation {
 
+            let highest = self._priorityQueues[.Highest]!
             var high = [SnapOperationIdentifier]()
             var normal = [SnapOperationIdentifier]()
-            
-            //TODO: Note that Highest and Low should not be moved to .Normal!
+            let low = self._priorityQueues[.Low]!
             
             for (currentGroupId, operationIdentifiers) in self._groups {
                 for operationIdentifier in operationIdentifiers {
+                    if highest.contains(operationIdentifier) ||
+                        low.contains(operationIdentifier) {
+                            continue
+                    }
+                    
                     if let operation = self._operations[operationIdentifier] {
                         if currentGroupId == groupIdentifier {
                             operation.queuePriority = .High
@@ -131,6 +155,10 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
                     
                 }
             }
+            
+            self._priorityQueues[.High] = high
+            self._priorityQueues[.Normal] = normal
+            
         }
     }
 

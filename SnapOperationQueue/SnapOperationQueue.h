@@ -1,11 +1,3 @@
-//
-//  SnapOperationQueue.h
-//  SnapOperationQueue
-//
-//  Created by Niklas Saers on 14/01/16.
-//  Copyright © 2016 Snapsale. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for SnapOperationQueue.

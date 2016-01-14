@@ -19,9 +19,7 @@
 		850FC56F1C47DBD600E1F75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC56D1C47DBD600E1F75D /* Main.storyboard */; };
 		850FC5711C47DBD600E1F75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FC5701C47DBD600E1F75D /* Assets.xcassets */; };
 		850FC5741C47DBD600E1F75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC5721C47DBD600E1F75D /* LaunchScreen.storyboard */; };
-		850FC5871C47DC0300E1F75D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5491C47D62100E1F75D /* TestHelpers.swift */; };
 		850FC5881C47DC0700E1F75D /* SnapOperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */; };
-		DD45E7F95BBF38EFE6CC4FB3 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F2849058516273AD08A31E /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +56,6 @@
 		850FC5431C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+NSOperationQueue.swift"; sourceTree = "<group>"; };
 		850FC5451C47D3C800E1F75D /* SnapOperationQueue+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+Internal.swift"; sourceTree = "<group>"; };
 		850FC5471C47D3D200E1F75D /* SnapOperationQueueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapOperationQueueProtocol.swift; sourceTree = "<group>"; };
-		850FC5491C47D62100E1F75D /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestHelpers.swift; path = ../SnapOperationQueueTests/TestHelpers.swift; sourceTree = "<group>"; };
 		850FC5671C47DBD600E1F75D /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FC5691C47DBD600E1F75D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		850FC56B1C47DBD600E1F75D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD45E7F95BBF38EFE6CC4FB3 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +159,6 @@
 		850FC57D1C47DBD600E1F75D /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				850FC5491C47D62100E1F75D /* TestHelpers.swift */,
 				850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */,
 				850FC5801C47DBD600E1F75D /* Info.plist */,
 			);
@@ -425,7 +420,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850FC5871C47DC0300E1F75D /* TestHelpers.swift in Sources */,
 				850FC5881C47DC0700E1F75D /* SnapOperationQueueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,7 +587,6 @@
 		};
 		850FC5821C47DBD600E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C23F51F2ACA59F1AF0882E6B /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -605,7 +598,6 @@
 		};
 		850FC5831C47DBD600E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0139831CFA87ED8C807A3074 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
