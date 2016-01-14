@@ -1,3 +1,5 @@
+***Currently work in progress, not yet fit for consumption***
+
 SnapOperationQueue is made to resemble NSOperationQueue and has options to quickly rearrange the queued priorities
 
 In Snapsale we make A LOT of network requests to our backend. At the same time, it is easy to navigate from screen to screen. When we go from one screen to another, we do not want the currently visible screen to have its data arrive late because we were executing network requests for a screen that is no longer visible. The information on the screen that is no longer visible is still relevant: the user will probably go back. But it should be deprioritized to what the currently visible screen needs. Similarly, when scrolling a scroll view, what is visible on screen should take priority of what has been scrolled off screen.

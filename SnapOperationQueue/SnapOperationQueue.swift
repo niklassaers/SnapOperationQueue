@@ -115,6 +115,8 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             var high = [SnapOperationIdentifier]()
             var normal = [SnapOperationIdentifier]()
             
+            //TODO: Note that Highest and Low should not be moved to .Normal!
+            
             for (currentGroupId, operationIdentifiers) in self._groups {
                 for operationIdentifier in operationIdentifiers {
                     if let operation = self._operations[operationIdentifier] {
