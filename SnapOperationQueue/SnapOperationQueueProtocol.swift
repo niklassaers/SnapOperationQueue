@@ -16,5 +16,5 @@ public protocol SnapOperationQueueProtocol : class {
     func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority)
     func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier)
     func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier)
-    func setGroupPriorityToHighRestToLow(groupIdentifier: SnapOperationGroupIdentifier)
+    func setGroupPriorityToHighRestToNormal(groupIdentifier: SnapOperationGroupIdentifier)
 }

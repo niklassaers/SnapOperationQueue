@@ -11,5 +11,8 @@ target 'SnapOperationQueue' do
 end
 
 target 'Unit tests' do
+  pod 'PSOperations'
 end
 
+target 'Example' do
+end

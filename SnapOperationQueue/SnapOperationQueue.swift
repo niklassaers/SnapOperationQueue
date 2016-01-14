@@ -3,7 +3,7 @@ import PSOperations
 
 public class SnapOperationQueue : NSObject {
     
-    internal var _backingOperationQueue = NSOperationQueue()
+    internal var _backingOperationQueue = OperationQueue()
     internal let readyLock = NSLock()
 
     internal var _priorityQueues : [SnapOperationQueuePriority : [SnapOperationIdentifier]]
@@ -46,6 +46,8 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             
             // Update operations
             self._operations[identifier] = operation
+            
+            self._backingOperationQueue.addOperation(operation)
             
             // When operation is done, have it removed
             operation.addObserver(BlockObserver(startHandler: nil, produceHandler: nil, finishHandler: { [weak self] (_, _) -> Void in
@@ -106,7 +108,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
     
-    public func setGroupPriorityToHighRestToLow(groupIdentifier: SnapOperationGroupIdentifier) {
+    public func setGroupPriorityToHighRestToNormal(groupIdentifier: SnapOperationGroupIdentifier) {
         
         lockedOperation {
 

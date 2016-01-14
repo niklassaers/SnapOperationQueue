@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Example
-//
-//  Created by Niklas Saers on 14/01/16.
-//  Copyright © 2016 Snapsale. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
