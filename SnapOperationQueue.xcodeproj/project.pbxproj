@@ -15,6 +15,7 @@
 		850FC5441C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5431C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift */; };
 		850FC5461C47D3C800E1F75D /* SnapOperationQueue+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5451C47D3C800E1F75D /* SnapOperationQueue+Internal.swift */; };
 		850FC5481C47D3D200E1F75D /* SnapOperationQueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5471C47D3D200E1F75D /* SnapOperationQueueProtocol.swift */; };
+		850FC54A1C47D62100E1F75D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5491C47D62100E1F75D /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		850FC5431C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+NSOperationQueue.swift"; sourceTree = "<group>"; };
 		850FC5451C47D3C800E1F75D /* SnapOperationQueue+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+Internal.swift"; sourceTree = "<group>"; };
 		850FC5471C47D3D200E1F75D /* SnapOperationQueueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapOperationQueueProtocol.swift; sourceTree = "<group>"; };
+		850FC5491C47D62100E1F75D /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +110,9 @@
 		850992021C4771C3003F93D4 /* SnapOperationQueueTests */ = {
 			isa = PBXGroup;
 			children = (
-				850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */,
 				850992051C4771C3003F93D4 /* Info.plist */,
+				850FC5491C47D62100E1F75D /* TestHelpers.swift */,
+				850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */,
 			);
 			path = SnapOperationQueueTests;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				850FC5441C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift in Sources */,
+				850FC54A1C47D62100E1F75D /* TestHelpers.swift in Sources */,
 				850FC5421C47C23500E1F75D /* SnapOperationQueue.swift in Sources */,
 				850FC5481C47D3D200E1F75D /* SnapOperationQueueProtocol.swift in Sources */,
 				850FC5461C47D3C800E1F75D /* SnapOperationQueue+Internal.swift in Sources */,
