@@ -1,3 +1,5 @@
+# SnapOperationQueue
+
 ***Currently work in progress, not yet fit for consumption***
 
 SnapOperationQueue is made to resemble NSOperationQueue and has options to quickly rearrange the queued priorities
@@ -16,6 +18,6 @@ SnapOperationQueue wraps four queues with the following priorities:
 
 An operation is added with an identifier, a priority (defaults to .High) and a group identifier. The group identifier would typically be your view controller identifier. Then, on viewDidDisappear, it would call queue.setGroupPriorityTo(.Low, forId: groupId). Remember to wrap groupIds in a StringRepresentable enum. When the view controller reappears, it would call queue.setGroupPriorityTo(.High, forId: groupId)
 
-Uses [PSNotification][0], a maintained version of Apple's WWDC'15 sample code. It is good, and you should use it instead of NSOperation
+Uses [PSOperations][0], a maintained version of Apple's WWDC'15 sample code. It is good, and you should use it instead of NSOperation
 
 [0]: https://github.com/pluralsight/PSOperations
