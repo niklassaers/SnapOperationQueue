@@ -1,7 +1,7 @@
 import Foundation
 import PSOperations
 
-class SnapOperationQueue : NSObject {
+public class SnapOperationQueue : NSObject {
     
     internal var _backingOperationQueue = NSOperationQueue()
     internal let readyLock = NSLock()
@@ -11,7 +11,7 @@ class SnapOperationQueue : NSObject {
     internal var _operations = [SnapOperationIdentifier : Operation]()
     
     
-    override init() {
+    override public init() {
         _priorityQueues = [
             .Highest: [SnapOperationIdentifier](),
             .High: [SnapOperationIdentifier](),
@@ -24,7 +24,7 @@ class SnapOperationQueue : NSObject {
 
 extension SnapOperationQueue : SnapOperationQueueProtocol {
     
-    func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal) {
+    public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal) {
         
         lockedOperation {
 
@@ -55,7 +55,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
     
-    func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier) {
+    public func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier) {
         lockedOperation {
 
             // Update priority queue
@@ -90,7 +90,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
     }
 
     
-    func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier) {
+    public func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier) {
         
         lockedOperation {
             
@@ -106,7 +106,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
     
-    func setGroupPriorityToHighRestToLow(groupIdentifier: SnapOperationGroupIdentifier) {
+    public func setGroupPriorityToHighRestToLow(groupIdentifier: SnapOperationGroupIdentifier) {
         
         lockedOperation {
 

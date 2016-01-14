@@ -9,17 +9,28 @@
 /* Begin PBXBuildFile section */
 		2FFA4B6B7FAD622056552A34 /* Pods_SnapOperationQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F294FBF9D56C8063304047 /* Pods_SnapOperationQueue.framework */; };
 		850991F81C4771C3003F93D4 /* SnapOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 850991F71C4771C3003F93D4 /* SnapOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		850991FF1C4771C3003F93D4 /* SnapOperationQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */; };
-		850992041C4771C3003F93D4 /* SnapOperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */; };
 		850FC5421C47C23500E1F75D /* SnapOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5411C47C23500E1F75D /* SnapOperationQueue.swift */; };
 		850FC5441C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5431C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift */; };
 		850FC5461C47D3C800E1F75D /* SnapOperationQueue+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5451C47D3C800E1F75D /* SnapOperationQueue+Internal.swift */; };
 		850FC5481C47D3D200E1F75D /* SnapOperationQueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5471C47D3D200E1F75D /* SnapOperationQueueProtocol.swift */; };
-		850FC54A1C47D62100E1F75D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5491C47D62100E1F75D /* TestHelpers.swift */; };
+		850FC56A1C47DBD600E1F75D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5691C47DBD600E1F75D /* AppDelegate.swift */; };
+		850FC56C1C47DBD600E1F75D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC56B1C47DBD600E1F75D /* ViewController.swift */; };
+		850FC56F1C47DBD600E1F75D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC56D1C47DBD600E1F75D /* Main.storyboard */; };
+		850FC5711C47DBD600E1F75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FC5701C47DBD600E1F75D /* Assets.xcassets */; };
+		850FC5741C47DBD600E1F75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FC5721C47DBD600E1F75D /* LaunchScreen.storyboard */; };
+		850FC5871C47DC0300E1F75D /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FC5491C47D62100E1F75D /* TestHelpers.swift */; };
+		850FC5881C47DC0700E1F75D /* SnapOperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		850992001C4771C3003F93D4 /* PBXContainerItemProxy */ = {
+		850FC57B1C47DBD600E1F75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 850991EB1C4771C2003F93D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 850FC5661C47DBD600E1F75D;
+			remoteInfo = Example;
+		};
+		850FC5891C47DC6200E1F75D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 850991EB1C4771C2003F93D4 /* Project object */;
 			proxyType = 1;
@@ -35,14 +46,21 @@
 		850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapOperationQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850991F71C4771C3003F93D4 /* SnapOperationQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SnapOperationQueue.h; sourceTree = "<group>"; };
 		850991F91C4771C3003F93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		850991FE1C4771C3003F93D4 /* Unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapOperationQueueTests.swift; sourceTree = "<group>"; };
-		850992051C4771C3003F93D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnapOperationQueueTests.swift; path = ../SnapOperationQueueTests/SnapOperationQueueTests.swift; sourceTree = "<group>"; };
 		850FC5411C47C23500E1F75D /* SnapOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapOperationQueue.swift; sourceTree = "<group>"; };
 		850FC5431C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+NSOperationQueue.swift"; sourceTree = "<group>"; };
 		850FC5451C47D3C800E1F75D /* SnapOperationQueue+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SnapOperationQueue+Internal.swift"; sourceTree = "<group>"; };
 		850FC5471C47D3D200E1F75D /* SnapOperationQueueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapOperationQueueProtocol.swift; sourceTree = "<group>"; };
-		850FC5491C47D62100E1F75D /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		850FC5491C47D62100E1F75D /* TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestHelpers.swift; path = ../SnapOperationQueueTests/TestHelpers.swift; sourceTree = "<group>"; };
+		850FC5671C47DBD600E1F75D /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		850FC5691C47DBD600E1F75D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		850FC56B1C47DBD600E1F75D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		850FC56E1C47DBD600E1F75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		850FC5701C47DBD600E1F75D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		850FC5731C47DBD600E1F75D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		850FC5751C47DBD600E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850FC57A1C47DBD600E1F75D /* Unit tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		850FC5801C47DBD600E1F75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +72,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		850991FB1C4771C3003F93D4 /* Frameworks */ = {
+		850FC5641C47DBD600E1F75D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850991FF1C4771C3003F93D4 /* SnapOperationQueue.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850FC5771C47DBD600E1F75D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				850991F61C4771C3003F93D4 /* SnapOperationQueue */,
-				850992021C4771C3003F93D4 /* SnapOperationQueueTests */,
+				850FC5681C47DBD600E1F75D /* Example */,
+				850FC57D1C47DBD600E1F75D /* ExampleTests */,
 				850991F51C4771C3003F93D4 /* Products */,
 				537199D8A46D719A7D3006AF /* Pods */,
 				EC31EB27C6244809AF2D5C28 /* Frameworks */,
@@ -89,7 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */,
-				850991FE1C4771C3003F93D4 /* Unit tests.xctest */,
+				850FC5671C47DBD600E1F75D /* Example.app */,
+				850FC57A1C47DBD600E1F75D /* Unit tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,14 +133,27 @@
 			path = SnapOperationQueue;
 			sourceTree = "<group>";
 		};
-		850992021C4771C3003F93D4 /* SnapOperationQueueTests */ = {
+		850FC5681C47DBD600E1F75D /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				850992051C4771C3003F93D4 /* Info.plist */,
+				850FC5691C47DBD600E1F75D /* AppDelegate.swift */,
+				850FC56B1C47DBD600E1F75D /* ViewController.swift */,
+				850FC56D1C47DBD600E1F75D /* Main.storyboard */,
+				850FC5701C47DBD600E1F75D /* Assets.xcassets */,
+				850FC5721C47DBD600E1F75D /* LaunchScreen.storyboard */,
+				850FC5751C47DBD600E1F75D /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		850FC57D1C47DBD600E1F75D /* ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
 				850FC5491C47D62100E1F75D /* TestHelpers.swift */,
 				850992031C4771C3003F93D4 /* SnapOperationQueueTests.swift */,
+				850FC5801C47DBD600E1F75D /* Info.plist */,
 			);
-			path = SnapOperationQueueTests;
+			path = ExampleTests;
 			sourceTree = "<group>";
 		};
 		EC31EB27C6244809AF2D5C28 /* Frameworks */ = {
@@ -159,22 +198,40 @@
 			productReference = 850991F41C4771C3003F93D4 /* SnapOperationQueue.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		850991FD1C4771C3003F93D4 /* Unit tests */ = {
+		850FC5661C47DBD600E1F75D /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "Unit tests" */;
+			buildConfigurationList = 850FC5811C47DBD600E1F75D /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				850991FA1C4771C3003F93D4 /* Sources */,
-				850991FB1C4771C3003F93D4 /* Frameworks */,
-				850991FC1C4771C3003F93D4 /* Resources */,
+				850FC5631C47DBD600E1F75D /* Sources */,
+				850FC5641C47DBD600E1F75D /* Frameworks */,
+				850FC5651C47DBD600E1F75D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				850992011C4771C3003F93D4 /* PBXTargetDependency */,
+				850FC58A1C47DC6200E1F75D /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = 850FC5671C47DBD600E1F75D /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		850FC5791C47DBD600E1F75D /* Unit tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 850FC5841C47DBD600E1F75D /* Build configuration list for PBXNativeTarget "Unit tests" */;
+			buildPhases = (
+				850FC5761C47DBD600E1F75D /* Sources */,
+				850FC5771C47DBD600E1F75D /* Frameworks */,
+				850FC5781C47DBD600E1F75D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				850FC57C1C47DBD600E1F75D /* PBXTargetDependency */,
 			);
 			name = "Unit tests";
-			productName = SnapOperationQueueTests;
-			productReference = 850991FE1C4771C3003F93D4 /* Unit tests.xctest */;
+			productName = ExampleTests;
+			productReference = 850FC57A1C47DBD600E1F75D /* Unit tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -190,8 +247,12 @@
 					850991F31C4771C3003F93D4 = {
 						CreatedOnToolsVersion = 7.2;
 					};
-					850991FD1C4771C3003F93D4 = {
+					850FC5661C47DBD600E1F75D = {
 						CreatedOnToolsVersion = 7.2;
+					};
+					850FC5791C47DBD600E1F75D = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 850FC5661C47DBD600E1F75D;
 					};
 				};
 			};
@@ -201,6 +262,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 850991EA1C4771C2003F93D4;
 			productRefGroup = 850991F51C4771C3003F93D4 /* Products */;
@@ -208,7 +270,8 @@
 			projectRoot = "";
 			targets = (
 				850991F31C4771C3003F93D4 /* SnapOperationQueue */,
-				850991FD1C4771C3003F93D4 /* Unit tests */,
+				850FC5661C47DBD600E1F75D /* Example */,
+				850FC5791C47DBD600E1F75D /* Unit tests */,
 			);
 		};
 /* End PBXProject section */
@@ -221,7 +284,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		850991FC1C4771C3003F93D4 /* Resources */ = {
+		850FC5651C47DBD600E1F75D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				850FC5741C47DBD600E1F75D /* LaunchScreen.storyboard in Resources */,
+				850FC5711C47DBD600E1F75D /* Assets.xcassets in Resources */,
+				850FC56F1C47DBD600E1F75D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850FC5781C47DBD600E1F75D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,30 +342,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				850FC5441C47C4CE00E1F75D /* SnapOperationQueue+NSOperationQueue.swift in Sources */,
-				850FC54A1C47D62100E1F75D /* TestHelpers.swift in Sources */,
 				850FC5421C47C23500E1F75D /* SnapOperationQueue.swift in Sources */,
 				850FC5481C47D3D200E1F75D /* SnapOperationQueueProtocol.swift in Sources */,
 				850FC5461C47D3C800E1F75D /* SnapOperationQueue+Internal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		850991FA1C4771C3003F93D4 /* Sources */ = {
+		850FC5631C47DBD600E1F75D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850992041C4771C3003F93D4 /* SnapOperationQueueTests.swift in Sources */,
+				850FC56C1C47DBD600E1F75D /* ViewController.swift in Sources */,
+				850FC56A1C47DBD600E1F75D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850FC5761C47DBD600E1F75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				850FC5871C47DC0300E1F75D /* TestHelpers.swift in Sources */,
+				850FC5881C47DC0700E1F75D /* SnapOperationQueueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		850992011C4771C3003F93D4 /* PBXTargetDependency */ = {
+		850FC57C1C47DBD600E1F75D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 850FC5661C47DBD600E1F75D /* Example */;
+			targetProxy = 850FC57B1C47DBD600E1F75D /* PBXContainerItemProxy */;
+		};
+		850FC58A1C47DC6200E1F75D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 850991F31C4771C3003F93D4 /* SnapOperationQueue */;
-			targetProxy = 850992001C4771C3003F93D4 /* PBXContainerItemProxy */;
+			targetProxy = 850FC5891C47DC6200E1F75D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		850FC56D1C47DBD600E1F75D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				850FC56E1C47DBD600E1F75D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		850FC5721C47DBD600E1F75D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				850FC5731C47DBD600E1F75D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		850992061C4771C3003F93D4 /* Debug */ = {
@@ -421,23 +527,49 @@
 			};
 			name = Release;
 		};
-		8509920C1C4771C3003F93D4 /* Debug */ = {
+		850FC5821C47DBD600E1F75D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SnapOperationQueueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.SnapOperationQueueTests;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snapoperationqueue.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		8509920D1C4771C3003F93D4 /* Release */ = {
+		850FC5831C47DBD600E1F75D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SnapOperationQueueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.SnapOperationQueueTests;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snapoperationqueue.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		850FC5851C47DBD600E1F75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snapoperationqueue.ExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+			};
+			name = Debug;
+		};
+		850FC5861C47DBD600E1F75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.snapsale.snapoperationqueue.ExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
 		};
@@ -462,14 +594,21 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8509920B1C4771C3003F93D4 /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
+		850FC5811C47DBD600E1F75D /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8509920C1C4771C3003F93D4 /* Debug */,
-				8509920D1C4771C3003F93D4 /* Release */,
+				850FC5821C47DBD600E1F75D /* Debug */,
+				850FC5831C47DBD600E1F75D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+		};
+		850FC5841C47DBD600E1F75D /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				850FC5851C47DBD600E1F75D /* Debug */,
+				850FC5861C47DBD600E1F75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

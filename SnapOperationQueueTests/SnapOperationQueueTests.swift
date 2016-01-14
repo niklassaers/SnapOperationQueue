@@ -1,10 +1,10 @@
 import XCTest
-@testable import SnapOperationQueue
+import SnapOperationQueue
 import PSOperations
 
 class SnapOperationQueueTests: XCTestCase {
 
-    var opQueue : SnapOperationQueue!
+    var opQueue : protocol<SnapOperationQueueProtocol, NSOperationQueueProtocol>!
     
     override func setUp() {
         super.setUp()

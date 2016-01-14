@@ -1,17 +1,17 @@
 import Foundation
 import PSOperations
 
-typealias SnapOperationIdentifier = String
-typealias SnapOperationGroupIdentifier = String
+public typealias SnapOperationIdentifier = String
+public typealias SnapOperationGroupIdentifier = String
 
-enum SnapOperationQueuePriority : Int {
+public enum SnapOperationQueuePriority : Int {
     case Highest
     case High
     case Normal
     case Low
 }
 
-protocol SnapOperationQueueProtocol {
+public protocol SnapOperationQueueProtocol : class {
     
     func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority)
     func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier)

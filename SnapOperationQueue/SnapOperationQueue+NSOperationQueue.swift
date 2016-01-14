@@ -18,31 +18,31 @@ public protocol NSOperationQueueProtocol : class {
 
 extension SnapOperationQueue : NSOperationQueueProtocol {
     
-    func addOperation(op: NSOperation) {
+    public func addOperation(op: NSOperation) {
         assert(false, "Use 'addOperation(operation, identifier, groupIdentifier, priority)' instead")
     }
     
-    func addOperations(ops: [NSOperation], waitUntilFinished wait: Bool) {
+    public func addOperations(ops: [NSOperation], waitUntilFinished wait: Bool) {
         assert(false, "Use 'addOperation(operation, identifier, groupIdentifier, priority)' instead")
     }
     
-    func addOperationWithBlock(block: () -> Void) {
+    public func addOperationWithBlock(block: () -> Void) {
         assert(false, "Use 'addOperation(operation, identifier, groupIdentifier, priority)' instead")
     }
     
-    var operations: [NSOperation] {
+    public var operations: [NSOperation] {
         get {
             return _backingOperationQueue.operations
         }
     }
     
-    var operationCount: Int  {
+    public var operationCount: Int  {
         get {
             return _backingOperationQueue.operationCount
         }
     }
     
-    var maxConcurrentOperationCount: Int {
+    public var maxConcurrentOperationCount: Int {
         get {
             return _backingOperationQueue.maxConcurrentOperationCount
         }
@@ -51,7 +51,7 @@ extension SnapOperationQueue : NSOperationQueueProtocol {
         }
     }
     
-    var suspended: Bool {
+    public var suspended: Bool {
         get {
             return _backingOperationQueue.suspended
         }
@@ -61,7 +61,7 @@ extension SnapOperationQueue : NSOperationQueueProtocol {
     }
     
 
-    var name: String? {
+    public var name: String? {
         get {
             return _backingOperationQueue.name
         }
@@ -71,7 +71,7 @@ extension SnapOperationQueue : NSOperationQueueProtocol {
     }
     
 
-    var qualityOfService: NSQualityOfService {
+    public var qualityOfService: NSQualityOfService {
         get {
             return _backingOperationQueue.qualityOfService
         }
@@ -81,7 +81,7 @@ extension SnapOperationQueue : NSOperationQueueProtocol {
     }
     
 
-    var underlyingQueue: dispatch_queue_t?  {
+    public var underlyingQueue: dispatch_queue_t?  {
         get {
             return _backingOperationQueue.underlyingQueue
         }
@@ -91,11 +91,11 @@ extension SnapOperationQueue : NSOperationQueueProtocol {
     }
     
 
-    func cancelAllOperations() {
+    public func cancelAllOperations() {
         _backingOperationQueue.cancelAllOperations()
     }
     
-    func waitUntilAllOperationsAreFinished() {
+    public func waitUntilAllOperationsAreFinished() {
         _backingOperationQueue.waitUntilAllOperationsAreFinished()
     }
 }
