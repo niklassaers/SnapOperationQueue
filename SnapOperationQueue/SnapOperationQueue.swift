@@ -162,6 +162,11 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
 
+    public func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation? {
+        
+        return _operations[identifier]
+    }
+
 
 }
 
