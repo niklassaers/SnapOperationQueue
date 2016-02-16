@@ -27,6 +27,9 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
     public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal)  -> Operation {
         
         if let existingOperation = _operations[identifier] {
+            if existingOperation.queuePriority.rawValue < priority.queuePriority.rawValue {
+                changePriorityForOperationsWithIdentifiers([identifier], toPriority: priority)
+            }
             return existingOperation
         }
         

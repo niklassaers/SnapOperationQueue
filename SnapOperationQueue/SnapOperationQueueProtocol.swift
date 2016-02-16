@@ -9,6 +9,22 @@ public enum SnapOperationQueuePriority : Int {
     case High
     case Normal
     case Low
+    
+    public var queuePriority : NSOperationQueuePriority {
+        get {
+            switch(self) {
+            case .Highest:
+                return .VeryHigh
+            case .High:
+                return .High
+            case .Normal:
+                return .Normal
+            case .Low:
+                return .VeryLow
+            }
+            
+        }
+    }
 }
 
 public protocol SnapOperationQueueProtocol : class {

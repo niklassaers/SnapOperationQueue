@@ -3,17 +3,7 @@ import Foundation
 extension SnapOperationQueue {
     
     internal func setPriority(priority: SnapOperationQueuePriority, toOperation operation : NSOperation) {
-        switch(priority) {
-        case .Highest:
-            operation.queuePriority = .VeryHigh
-        case .High:
-            operation.queuePriority = .High
-        case .Normal:
-            operation.queuePriority = .Normal
-        case .Low:
-            operation.queuePriority = .VeryLow
-            
-        }
+        operation.queuePriority = priority.queuePriority
     }
     
     internal func lockedOperation(f: () -> ()) {
