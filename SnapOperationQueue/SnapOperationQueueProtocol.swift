@@ -13,7 +13,12 @@ public enum SnapOperationQueuePriority : Int {
 
 public protocol SnapOperationQueueProtocol : class {
     
-    func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority)
+    // If there already was an operation in the queue with this identifier, return that operation. Return the input operation for success
+    func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority) -> Operation
+    
+    func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation?
+    func changePriorityForOperationsWithIdentifiers(identifiers: [SnapOperationIdentifier], toPriority: SnapOperationQueuePriority)
+    
     func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier)
     func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier)
     func setGroupPriorityToHighRestToNormal(groupIdentifier: SnapOperationGroupIdentifier)

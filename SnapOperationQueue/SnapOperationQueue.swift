@@ -24,7 +24,11 @@ public class SnapOperationQueue : NSObject {
 
 extension SnapOperationQueue : SnapOperationQueueProtocol {
     
-    public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal) {
+    public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal)  -> Operation {
+        
+        if let existingOperation = _operations[identifier] {
+            return existingOperation
+        }
         
         lockedOperation {
 
@@ -53,9 +57,43 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             operation.addObserver(BlockObserver(startHandler: nil, produceHandler: nil, finishHandler: { [weak self] (_, _) -> Void in
                 self?.operationIsDoneOrCancelled(identifier)
                 }))
-            
+        }
+        
+        return operation
+    }
+    
+    public func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation? {
+        return _operations[identifier]
+    }
+
+    public func changePriorityForOperationsWithIdentifiers(identifiers : [SnapOperationIdentifier], toPriority priority: SnapOperationQueuePriority) {
+        
+        lockedOperation { 
+            for operationIdentifier in identifiers {
+                if let operation = self._operations[operationIdentifier] {
+                    // Affect operation
+                    self.setPriority(priority, toOperation: operation)
+                    
+                    // Update priority queue
+                    if var priorityQueue = self._priorityQueues[priority] {
+                        priorityQueue.append(operationIdentifier)
+                        self._priorityQueues[priority] = priorityQueue
+                    } else {
+                        self._priorityQueues[priority] = [operationIdentifier]
+                    }
+                    
+                    // Remove from other priority queues
+                    for (thePriority, theOperationIdentifiers) in self._priorityQueues where thePriority != priority {
+                        let newOperationIdentifiers = theOperationIdentifiers.filter({ (theOperationIdentifier) -> Bool in
+                            return theOperationIdentifier != operationIdentifier
+                        })
+                        self._priorityQueues[thePriority] = newOperationIdentifiers
+                    }
+                }
+            }
         }
     }
+
     
     public func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier) {
         lockedOperation {
