@@ -20,6 +20,10 @@ public class SnapOperationQueue : NSObject {
         
         super.init()
     }
+    
+    public func setMaxNumberOfConcurrentOperations(num: UInt) {
+        _backingOperationQueue.maxConcurrentOperationCount = Int(num)
+    }
 }
 
 extension SnapOperationQueue : SnapOperationQueueProtocol {
