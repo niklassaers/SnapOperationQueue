@@ -14,7 +14,7 @@
   "social_media_url": "http://twitter.com/snapsale_com",
   "source": {
     "git": "https://github.com/skylib/SnapOperationQueue.git",
-    "commit": "dbb7a927307aafdef2cfd51c1143ba3466d45324"
+    "commit": "e33d97a948fc4717a7514b71eddf9ac87e67b36b"
   },
   "platforms": {
     "ios": 8.0
