@@ -145,7 +145,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             self._operations.removeValueForKey(identifier)
             
             if self._operations.count == 0 {
-                if onEnd = self.onEnd {
+                if let onEnd = self.onEnd {
                     onEnd()
                 }
             }
