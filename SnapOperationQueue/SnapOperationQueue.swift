@@ -10,6 +10,8 @@ public class SnapOperationQueue : NSObject {
     internal var _groups = [SnapOperationGroupIdentifier: [SnapOperationIdentifier]]()
     internal var _operations = [SnapOperationIdentifier : Operation]()
     
+    public var onStart : (() -> ())?
+    public var onEnd : (() -> ())?
     
     override public init() {
         _priorityQueues = [
@@ -29,6 +31,12 @@ public class SnapOperationQueue : NSObject {
 extension SnapOperationQueue : SnapOperationQueueProtocol {
     
     public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal)  -> Operation {
+        
+        if _operations.count == 0 {
+            if let onStart = onStart {
+                onStart()
+            }
+        }
         
         if let existingOperation = _operations[identifier] {
             if existingOperation.queuePriority.rawValue < priority.queuePriority.rawValue {
@@ -135,6 +143,12 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             
             // Update operations
             self._operations.removeValueForKey(identifier)
+            
+            if self._operations.count == 0 {
+                if onEnd = self.onEnd {
+                    onEnd()
+                }
+            }
         }
     }
 
