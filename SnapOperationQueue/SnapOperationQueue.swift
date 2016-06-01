@@ -3,13 +3,15 @@ import PSOperations
 
 public class SnapOperationQueue : NSObject {
     
-    internal var _backingOperationQueue = OperationQueue()
-    internal let readyLock = NSLock()
+    public var _backingOperationQueue = OperationQueue()
+    public let readyLock = NSLock()
 
-    internal var _priorityQueues : [SnapOperationQueuePriority : [SnapOperationIdentifier]]
-    internal var _groups = [SnapOperationGroupIdentifier: [SnapOperationIdentifier]]()
-    internal var _operations = [SnapOperationIdentifier : Operation]()
+    public var _priorityQueues : [SnapOperationQueuePriority : [SnapOperationIdentifier]]
+    public var _groups = [SnapOperationGroupIdentifier: [SnapOperationIdentifier]]()
+    public var _operations = [SnapOperationIdentifier : Operation]()
     
+    public var onStart : (() -> ())?
+    public var onEnd : (() -> ())?
     
     override public init() {
         _priorityQueues = [
@@ -19,6 +21,7 @@ public class SnapOperationQueue : NSObject {
             .Low: [SnapOperationIdentifier]()]
         
         super.init()
+        _backingOperationQueue.delegate = self
     }
     
     public func setMaxNumberOfConcurrentOperations(num: UInt) {
@@ -29,6 +32,12 @@ public class SnapOperationQueue : NSObject {
 extension SnapOperationQueue : SnapOperationQueueProtocol {
     
     public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal)  -> Operation {
+        
+        if _operations.count == 0 {
+            if let onStart = onStart {
+                onStart()
+            }
+        }
         
         if let existingOperation = _operations[identifier] {
             if existingOperation.queuePriority.rawValue < priority.queuePriority.rawValue {
@@ -43,6 +52,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             // Update priority queue
             if var priorityQueue = self._priorityQueues[priority] {
                 priorityQueue.append(identifier)
+                self._priorityQueues[priority] = priorityQueue
             }
             
             // Update group list
@@ -64,10 +74,34 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
                 }))
 
             // Then fire!
-            self._backingOperationQueue.addOperation(operation)
+            if self._backingOperationQueue.operations.contains(operation) {
+                print("Warning: tried to add existing operation")
+            } else {
+                self._backingOperationQueue.addOperation(operation)
+            }
+            
         }
         
         return operation
+    }
+    
+    public func cancelOperationsInGroup(groupIdentifier: SnapOperationGroupIdentifier) {
+        var operationsToCancel = [Operation]()
+        
+        lockedOperation {
+            if let group = self._groups[groupIdentifier] {
+                for operationKey in group {
+                    if let operation = self._operations[operationKey] {
+                        operationsToCancel.append(operation)
+                        // operationIsDoneOrCancelled will do the rest of the cleanup
+                    }
+                }
+            }
+        }
+        
+        for operation in operationsToCancel {
+            operation.cancel() // This one is dependent on the lockedOperation above being available, and our NSLock here is not re-entrant yet
+        }
     }
     
     public func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation? {
@@ -135,6 +169,12 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             
             // Update operations
             self._operations.removeValueForKey(identifier)
+            
+            if self._operations.count == 0 {
+                if let onEnd = self.onEnd {
+                    onEnd()
+                }
+            }
         }
     }
 
@@ -210,3 +250,13 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
     }
 }
 
+extension SnapOperationQueue : OperationQueueDelegate {
+    public func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
+        //print("Added operation \(operation)")
+    }
+    
+    public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError]) {
+        //print("Finished operation \(operation) with errors \(errors) and dependencies \(operation.dependencies)")
+    }
+
+}
