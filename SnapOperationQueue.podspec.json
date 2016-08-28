@@ -1,6 +1,6 @@
 {
   "name": "SnapOperationQueue",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "summary": "Like NSOperationQueue, but with grouping, prioritizing and re-prioritizing of operations",
   "description": "SnapOperationQueue is made to resemble NSOperationQueue and has options to quickly rearrange the queued priorities",
   "homepage": "https://github.com/skylib/SnapOperationQueue",
@@ -14,7 +14,7 @@
   "social_media_url": "http://twitter.com/snapsale_com",
   "source": {
     "git": "https://github.com/skylib/SnapOperationQueue.git",
-    "commit": "3da51716a92b38e05cddb9f27db4ee3dc89eee05"
+    "commit": "c8a653cf3e20d1658b806dbd90c245e50c094f41"
   },
   "platforms": {
     "ios": 8.0
