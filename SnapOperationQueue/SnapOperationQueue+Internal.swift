@@ -2,11 +2,11 @@ import Foundation
 
 extension SnapOperationQueue {
     
-    internal func setPriority(priority: SnapOperationQueuePriority, toOperation operation : NSOperation) {
+    internal func setPriority(_ priority: SnapOperationQueuePriority, toOperation operation : Operation) {
         operation.queuePriority = priority.queuePriority
     }
     
-    internal func lockedOperation(f: () -> ()) {
+    internal func lockedOperation(_ f: () -> ()) {
         readyLock.lock()
         f()
         readyLock.unlock()

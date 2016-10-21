@@ -1,37 +1,37 @@
 import Foundation
 import PSOperations
 
-public class SnapOperationQueue : NSObject {
+open class SnapOperationQueue : NSObject {
     
-    public var _backingOperationQueue = OperationQueue()
-    public let readyLock = NSLock()
+    open var _backingOperationQueue = PSOperations.OperationQueue()
+    open let readyLock = NSLock()
 
-    public var _priorityQueues : [SnapOperationQueuePriority : [SnapOperationIdentifier]]
-    public var _groups = [SnapOperationGroupIdentifier: [SnapOperationIdentifier]]()
-    public var _operations = [SnapOperationIdentifier : Operation]()
+    open var _priorityQueues : [SnapOperationQueuePriority : [SnapOperationIdentifier]]
+    open var _groups = [SnapOperationGroupIdentifier: [SnapOperationIdentifier]]()
+    open var _operations : [SnapOperationIdentifier : PSOperations.Operation] = [:]
     
-    public var onStart : (() -> ())?
-    public var onEnd : (() -> ())?
+    open var onStart : (() -> ())?
+    open var onEnd : (() -> ())?
     
     override public init() {
         _priorityQueues = [
-            .Highest: [SnapOperationIdentifier](),
-            .High: [SnapOperationIdentifier](),
-            .Normal: [SnapOperationIdentifier](),
-            .Low: [SnapOperationIdentifier]()]
+            .highest: [SnapOperationIdentifier](),
+            .high: [SnapOperationIdentifier](),
+            .normal: [SnapOperationIdentifier](),
+            .low: [SnapOperationIdentifier]()]
         
         super.init()
         _backingOperationQueue.delegate = self
     }
     
-    public func setMaxNumberOfConcurrentOperations(num: UInt) {
+    open func setMaxNumberOfConcurrentOperations(_ num: UInt) {
         _backingOperationQueue.maxConcurrentOperationCount = Int(num)
     }
 }
 
 extension SnapOperationQueue : SnapOperationQueueProtocol {
     
-    public func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .Normal)  -> Operation {
+    public func addOperation(_ operation: PSOperations.Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority = .normal)  -> PSOperations.Operation {
         
         if _operations.count == 0 {
             if let onStart = onStart {
@@ -85,8 +85,8 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         return operation
     }
     
-    public func cancelOperationsInGroup(groupIdentifier: SnapOperationGroupIdentifier) {
-        var operationsToCancel = [Operation]()
+    public func cancelOperationsInGroup(_ groupIdentifier: SnapOperationGroupIdentifier) {
+        var operationsToCancel : [PSOperations.Operation] = []
         
         lockedOperation {
             if let group = self._groups[groupIdentifier] {
@@ -104,11 +104,11 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
     
-    public func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation? {
+    public func operationWithIdentifier(_ identifier: SnapOperationIdentifier) -> PSOperations.Operation? {
         return _operations[identifier]
     }
 
-    public func changePriorityForOperationsWithIdentifiers(identifiers : [SnapOperationIdentifier], toPriority priority: SnapOperationQueuePriority) {
+    public func changePriorityForOperationsWithIdentifiers(_ identifiers : [SnapOperationIdentifier], toPriority priority: SnapOperationQueuePriority) {
         
         lockedOperation { 
             for operationIdentifier in identifiers {
@@ -138,7 +138,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
     }
 
     
-    public func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier) {
+    public func operationIsDoneOrCancelled(_ identifier: SnapOperationIdentifier) {
         lockedOperation {
 
             // Update priority queue
@@ -168,7 +168,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
             }
             
             // Update operations
-            self._operations.removeValueForKey(identifier)
+            self._operations.removeValue(forKey: identifier)
             
             if self._operations.count == 0 {
                 if let onEnd = self.onEnd {
@@ -179,7 +179,7 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
     }
 
     
-    public func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier) {
+    public func setGroupPriorityTo(_ priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier) {
         
         lockedOperation {
             
@@ -214,14 +214,14 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
         }
     }
     
-    public func setGroupPriorityToHighRestToNormal(groupIdentifier: SnapOperationGroupIdentifier) {
+    public func setGroupPriorityToHighRestToNormal(_ groupIdentifier: SnapOperationGroupIdentifier) {
         
         lockedOperation {
 
-            let highest = self._priorityQueues[.Highest]!
+            let highest = self._priorityQueues[.highest]!
             var high = [SnapOperationIdentifier]()
             var normal = [SnapOperationIdentifier]()
-            let low = self._priorityQueues[.Low]!
+            let low = self._priorityQueues[.low]!
             
             for (currentGroupId, operationIdentifiers) in self._groups {
                 for operationIdentifier in operationIdentifiers {
@@ -232,10 +232,10 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
                     
                     if let operation = self._operations[operationIdentifier] {
                         if currentGroupId == groupIdentifier {
-                            operation.queuePriority = .High
+                            operation.queuePriority = .high
                             high.append(operationIdentifier)
                         } else {
-                            operation.queuePriority = .Normal
+                            operation.queuePriority = .normal
                             normal.append(operationIdentifier)
                         }
                     }
@@ -243,19 +243,19 @@ extension SnapOperationQueue : SnapOperationQueueProtocol {
                 }
             }
             
-            self._priorityQueues[.High] = high
-            self._priorityQueues[.Normal] = normal
+            self._priorityQueues[.high] = high
+            self._priorityQueues[.normal] = normal
             
         }
     }
 }
 
 extension SnapOperationQueue : OperationQueueDelegate {
-    public func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
+    @nonobjc public func operationQueue(_ operationQueue: PSOperations.OperationQueue, willAddOperation operation: PSOperations.Operation) {
         //print("Added operation \(operation)")
     }
     
-    public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError]) {
+    @nonobjc public func operationQueue(_ operationQueue: PSOperations.OperationQueue, operationDidFinish operation: PSOperations.Operation, withErrors errors: [NSError]) {
         //print("Finished operation \(operation) with errors \(errors) and dependencies \(operation.dependencies)")
     }
 
