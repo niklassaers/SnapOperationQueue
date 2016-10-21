@@ -5,22 +5,22 @@ public typealias SnapOperationIdentifier = String
 public typealias SnapOperationGroupIdentifier = String
 
 public enum SnapOperationQueuePriority : Int {
-    case Highest
-    case High
-    case Normal
-    case Low
+    case highest
+    case high
+    case normal
+    case low
     
-    public var queuePriority : NSOperationQueuePriority {
+    public var queuePriority : PSOperations.Operation.QueuePriority {
         get {
             switch(self) {
-            case .Highest:
-                return .VeryHigh
-            case .High:
-                return .High
-            case .Normal:
-                return .Normal
-            case .Low:
-                return .VeryLow
+            case .highest:
+                return .veryHigh
+            case .high:
+                return .high
+            case .normal:
+                return .normal
+            case .low:
+                return .veryLow
             }
             
         }
@@ -30,12 +30,12 @@ public enum SnapOperationQueuePriority : Int {
 public protocol SnapOperationQueueProtocol : class {
     
     // If there already was an operation in the queue with this identifier, return that operation. Return the input operation for success
-    func addOperation(operation: Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority) -> Operation
+    func addOperation(_ operation: PSOperations.Operation, identifier: SnapOperationIdentifier, groupIdentifier: SnapOperationGroupIdentifier, priority: SnapOperationQueuePriority) -> PSOperations.Operation
     
-    func operationWithIdentifier(identifier: SnapOperationIdentifier) -> Operation?
-    func changePriorityForOperationsWithIdentifiers(identifiers: [SnapOperationIdentifier], toPriority: SnapOperationQueuePriority)
+    func operationWithIdentifier(_ identifier: SnapOperationIdentifier) -> PSOperations.Operation?
+    func changePriorityForOperationsWithIdentifiers(_ identifiers: [SnapOperationIdentifier], toPriority: SnapOperationQueuePriority)
     
-    func operationIsDoneOrCancelled(identifier: SnapOperationIdentifier)
-    func setGroupPriorityTo(priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier)
-    func setGroupPriorityToHighRestToNormal(groupIdentifier: SnapOperationGroupIdentifier)
+    func operationIsDoneOrCancelled(_ identifier: SnapOperationIdentifier)
+    func setGroupPriorityTo(_ priority: SnapOperationQueuePriority, groupIdentifier: SnapOperationGroupIdentifier)
+    func setGroupPriorityToHighRestToNormal(_ groupIdentifier: SnapOperationGroupIdentifier)
 }
